@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#d6f7ff"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:text="Huffman Algorithm"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:background="#c0dee5"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/scam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/input_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a string to encode using Huffman coding"
+        android:padding="12dp"
+        android:background="#c0dee5"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/encode_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Encode"
+        android:textColor="#120D0D"
+        android:background="#2C98EF"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/encoded_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:background="#c0dee5"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/decode_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Decode"
+        android:textColor="#000000"
+        android:background="#22FB54"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/decoded_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#c0dee5"
+        android:paddingTop="16dp"
+        android:textSize="16sp" />
+
+</LinearLayout>
