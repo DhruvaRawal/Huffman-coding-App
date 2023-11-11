@@ -1,25 +1,20 @@
 package com.example.dsaproject;
 
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private Map<Character, String> codes = new HashMap<>();
-    private PriorityQueue<MinHeapNode> minHeap; // Declare minHeap as a class-level variable
+    private PriorityQueue<MinHeapNode> minHeap;
 
     private static class MinHeapNode {
         char data;
@@ -33,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
             this.right = null;
         }
     }
-
 
     private static void printCodes(MinHeapNode root, String str, StringBuilder sb, Map<Character, String> codes) {
         if (root == null)
@@ -51,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             freq.put(c, freq.getOrDefault(c, 0) + 1);
         }
     }
-
 
     private void HuffmanCodes(String input) {
         Map<Character, Integer> freq = new HashMap<>();
@@ -79,9 +72,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,23 +88,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String input = inputText.getText().toString();
-                HuffmanCodes(input);
-
-                StringBuilder encodedString = new StringBuilder();
-                for (char c : input.toCharArray()) {
-                    encodedString.append(codes.get(c));
+                if (input.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please enter a string to encode", Toast.LENGTH_SHORT).show();
+                } else {
+                    HuffmanCodes(input);
+                    StringBuilder encodedString = new StringBuilder();
+                    for (char c : input.toCharArray()) {
+                        encodedString.append(codes.get(c));
+                    }
+                    encodedText.setText("Encoded Huffman data:\n" + encodedString.toString());
                 }
-
-                encodedText.setText("Encoded Huffman data:\n" + encodedString.toString());
             }
         });
 
         decodeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String encodedString = encodedText.getText().toString().split("\n")[1];
-                String decodedString = decode_file(minHeap.peek(), encodedString);
-                decodedText.setText("Decoded Huffman data:\n" + decodedString);
+                String input = encodedText.getText().toString();
+                if (input.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please encode a string first", Toast.LENGTH_SHORT).show();
+                } else {
+                    String encodedString = encodedText.getText().toString().split("\n")[1];
+                    String decodedString = decode_file(minHeap.peek(), encodedString);
+                    decodedText.setText("Decoded Huffman data:\n" + decodedString);
+                }
             }
         });
     }
@@ -132,9 +129,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if (current.left == null && current.right == null) {
-                // Found a leaf node, append its data to the decoded string
                 decodedString.append(current.data);
-                // Reset the current node to the root for the next character decoding
                 current = root;
             }
         }
@@ -143,4 +138,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+/*
+             /     \/
+    |¯¯¯¯¯¯/|      /\
+    |    /  |     /  \                        /\
+    |  /    |    /    \                      /  \
+    |/______|  _/______\_                   /    \
+   /                                       /¯¯¯\  \
+    \\/\  /\    /\  /\//                  /     \  \
+     \  \/  \  /  \/  /                  /       \  \
+      \  /\  \//\    /                  /         \ /
+       \/  \  /  \  /                  /           V
+            \/    \/                  /            *
+                                     /           ** *
+                                    /           *  ** *
+                                   /          *  **  *  *
+*/
+
+
+
+
+
+
+
+
 

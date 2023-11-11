@@ -11,29 +11,28 @@
     <TextView
         android:id="@+id/text"
         android:text="Huffman Algorithm"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:background="#c0dee5"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/scam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"/>
 
     <EditText
         android:id="@+id/input_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter a string to encode using Huffman coding"
-        android:padding="12dp"
+        android:layout_marginBottom="16dp"
         android:background="#c0dee5"
+        android:hint="Enter a string to encode using Huffman coding"
+        android:padding="13dp"
         android:textColor="#000000"
         android:textSize="16sp"
-        android:layout_marginBottom="16dp"/>
+        />
 
     <Button
         android:id="@+id/encode_button"
@@ -41,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="Encode"
         android:textColor="#120D0D"
-        android:background="#2C98EF"
+        android:background="@color/purple_200"
         android:textSize="18sp"
         android:layout_marginBottom="16dp"/>
 
@@ -51,7 +50,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:background="#c0dee5"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/decode_button"
@@ -70,6 +70,7 @@
         android:layout_height="wrap_content"
         android:background="#c0dee5"
         android:paddingTop="16dp"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
 
 </LinearLayout>
